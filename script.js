@@ -28,7 +28,7 @@ document.getElementById("dataForm").addEventListener("submit", function(event) {
     var tel = document.getElementById("tel").value;
     var CIN = document.getElementById("CIN").value;
     if (name === "") {
-        showError("Forget Name! Please fill in the Name field.");
+        showError("Name is required! Please fill in the Name field.");
         return;
     }
     
@@ -38,7 +38,7 @@ document.getElementById("dataForm").addEventListener("submit", function(event) {
     }
 
     if (lastName === "") {
-        showError("Forget Last Name! Please fill in the Last Name field.");
+        showError("Last Name is required! Please fill in the Last Name field.");
         return;
     }
     if (!/^[A-Za-z\s]+$/.test(lastName)) {
@@ -47,7 +47,7 @@ document.getElementById("dataForm").addEventListener("submit", function(event) {
     }
     
     if (tel === "") {
-        showError("Forget phone! Please fill in the Telephone field.");
+        showError("Telephone number is required. Please enter your telephone number.");
         return;
     }
     if (tel.length !== 10 || isNaN(tel)) {
@@ -55,7 +55,7 @@ document.getElementById("dataForm").addEventListener("submit", function(event) {
         return;
     }
     if (CIN === "") {
-        showError("Forget CIN! Please fill in the CIN field.");
+        showError(" CIN is required! Please fill in the CIN field.");
         return;
     }
     if (!/^[a-zA-Z0-9]+$/.test(CIN)) {
