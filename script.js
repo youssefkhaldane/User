@@ -96,18 +96,15 @@ document.getElementById("dataForm").addEventListener("submit", function(event) {
     document.getElementById("Email").value = "";
     document.getElementById("tel").value = "";
     document.getElementById("CIN").value = "";
+    document.getElementById("city").value = "";
     showSuccess("User added successfully!");
+
 });
 
-
-
 function deleteRow(button) {
-    // Display a confirmation dialog
     var confirmDelete = confirm("Are you sure you want to delete this row?");
     if (confirmDelete) {
-        // Find the row containing the button
         var row = button.closest('tr');
-        // Remove the row from the table
         row.parentNode.removeChild(row);
     }
 }
@@ -118,14 +115,12 @@ function updateRow(btn) {
     for (var i = 0; i < cells.length - 1; i++) {
         var cell = cells[i];
 
-        // تحقق ما إذا كانت الخلية تحتوي على حقل إدخال أو قائمة منسدلة بالفعل
         var inputPresent = cell.getElementsByTagName('input').length > 0;
         var selectPresent = cell.getElementsByTagName('select').length > 0;
 
         if (!inputPresent && !selectPresent) {
             var value = cell.innerHTML.trim();
             
-            // تحقق ما إذا كانت الخلية تحتوي على نص يشير إلى قائمة المدن
             if (value === 'Select your city' || value === 'Agadir' || value === 'Bouznika' || value === 'Casablanca' || value === 'El Jadida' || value === 'Essaouira' || value === 'Fes' || value === 'Kenitra' || value === 'Meknes' || value === 'Mohammedia' || value === 'Oujda' || value === 'Rabat' || value === 'Safi' || value === 'Sale' || value === 'Tanger' || value === 'Tetouan') {
                 cell.innerHTML = '<select id="city" name="city" class="input">' +
                     '<option value="">Select your city</option>' +
@@ -146,7 +141,6 @@ function updateRow(btn) {
                     '<option value="Tetouan">Tetouan</option>' +
                     '</select>';
             } else {
-                // تحويل الخلية إلى حقل إدخال
                 cell.innerHTML = '<input type="text" value="' + value + '" style="border-radius: 10px; background-color: white; color: gray; padding: 5px; font-weight: bold; font-size: 16px; border: white;">';
             }
         }
